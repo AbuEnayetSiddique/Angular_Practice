@@ -1,0 +1,59 @@
+<p>box works!</p>
+<!-- <div class="box-container" [appWeightColor]="box.weight"> -->
+<!-- <div class="box-container">
+    <div class="box-info">
+      <p><strong>Size:</strong> {{ box.size }}</p>
+      <p><strong>Contents:</strong> {{ box.contents }}</p>
+      <p><strong>Shipping Label:</strong> {{ box.shippingLabel | uppercase }}</p>
+      <p><strong>Recipient:</strong> <span [style.color]="!box.recipient ? 'red' : ''">{{ box.recipient || 'Your Name' }}</span></p>
+      <p><strong>Weight:</strong> {{ box.weight }}g</p>
+    </div>
+  </div> -->
+  <h1>Cardboard Box Tracking</h1>
+
+<div>
+  <h2>Add a Box</h2>
+  <div>
+    <label for="size">Size:</label>
+    <input type="number" id="size" [(ngModel)]="newBox.size" min="1" max="10">
+  </div>
+  <div>
+    <label for="contents">Contents:</label>
+    <textarea id="contents" [(ngModel)]="newBox.contents"></textarea>
+  </div>
+  <div>
+    <label for="shippingLabel">Shipping Label:</label>
+    <input type="text" id="shippingLabel" [(ngModel)]="newBox.shippingLabel">
+  </div>
+  <div>
+    <label for="recipient">Recipient:</label>
+    <input type="text" id="recipient" [(ngModel)]="newBox.recipient">
+  </div>
+  <div>
+    <label for="weight">Weight:</label>
+    <input type="number" id="weight" [(ngModel)]="newBox.weight" step="10">
+    <span>g</span>
+  </div>
+  <button (click)="addBox()">Add Box</button>
+</div>
+
+<div>
+  <h2>List of Boxes</h2>
+  <div *ngFor="let box of boxes" class="box">
+    <div>
+      <strong>Size:</strong> {{ box.size }}
+    </div>
+    <div>
+      <strong>Contents:</strong> {{ box.contents }}
+    </div>
+    <div>
+      <strong>Shipping Label:</strong> {{ box.shippingLabel | uppercase }}
+    </div>
+    <div>
+      <strong>Recipient:</strong> {{ box.recipient || 'Abu Siddique' }}
+    </div>
+    <div>
+      <strong>Weight:</strong> {{ box.weight }}g
+    </div>
+  </div>
+</div>
