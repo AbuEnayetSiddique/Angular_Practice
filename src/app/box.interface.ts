@@ -1,6 +1,6 @@
 export interface Box {
     size: number;
-    contents: string;
+    description: string;
     shippingLabel: string;
     recipient?: string;
     weight: number;

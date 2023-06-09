@@ -18,8 +18,8 @@
     <input type="number" id="size" [(ngModel)]="newBox.size" min="1" max="10">
   </div>
   <div>
-    <label for="contents">Contents:</label>
-    <textarea id="contents" [(ngModel)]="newBox.contents"></textarea>
+    <label for="description">Description:</label>
+    <textarea id="description" [(ngModel)]="newBox.description"></textarea>
   </div>
   <div>
     <label for="shippingLabel">Shipping Label:</label>
@@ -39,21 +39,21 @@
 
 <div>
   <h2>List of Boxes</h2>
-  <div *ngFor="let box of boxes" class="box">
-    <div>
-      <strong>Size:</strong> {{ box.size }}
-    </div>
-    <div>
-      <strong>Contents:</strong> {{ box.contents }}
-    </div>
-    <div>
-      <strong>Shipping Label:</strong> {{ box.shippingLabel | uppercase }}
-    </div>
-    <div>
-      <strong>Recipient:</strong> {{ box.recipient || 'Abu Siddique' }}
-    </div>
-    <div>
-      <strong>Weight:</strong> {{ box.weight }}g
-    </div>
+  <div *ngFor="let box of boxes.reverse()" class="box">
+    <p>
+      Size: {{ box.size }}
+    </p>
+    <p>
+      Contents: {{ box.description }}
+    </p>
+    <p>
+      Shipping Label: {{ box.shippingLabel | uppercase }}
+    </p>
+    <p>
+      Recipient: <span [style.color]="'red'">{{ box.recipient || 'Abu Siddique' }} </span>
+    </p>
+    <p [appWeightColour]="box.weight">
+      Weight: {{ box.weight }}g
+    </p>
   </div>
 </div>

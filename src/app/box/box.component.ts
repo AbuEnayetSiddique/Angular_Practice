@@ -9,15 +9,25 @@ import { Box } from '../box.interface';
 export class BoxComponent {
   @Input() box: Box;
 
-  boxes: Box[] = [];
+  boxes: Box[] = [
+    {
+    size: 1,
+    description: 'Mistry Box',
+    shippingLabel: 'aaa111',
+    recipient: 'Abu Enayet Siddique',
+    weight: 250
+   }
+  ];
+
   newBox: Box = {
     size: 5,
-    contents: 'Default contents',
+    description: 'Default Description',
     shippingLabel: 'abc123',
     recipient: 'Abu Enayet Siddique',
     weight: 50
   };
 
+   
   addBox() {
     this.boxes.push({ ...this.newBox });
     this.resetForm();
@@ -26,7 +36,7 @@ export class BoxComponent {
   resetForm() {
     this.newBox = {
       size: 1,
-      contents: '',
+      description: '',
       shippingLabel: '',
       recipient: '',
       weight: 0
